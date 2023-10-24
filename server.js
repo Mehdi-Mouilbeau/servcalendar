@@ -1,22 +1,16 @@
 const express = require('express');
 const app = express();
-const colleagues = require('./data');
+const userController = require('./src/controllers/user/userController');
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
+app.use('/users', userController);
+
 app.get('/', (req, res) => {
-    res.send('Hello World')
-});
-
-app.get('/colleagues', (req, res) => {
-    res.json(colleagues);
-});
-
-app.get('/colleagues/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const name = parseInt(req.params.name);
-    res.json(id);
+    res.send('Hello World');
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
