@@ -1,12 +1,13 @@
+const colleagues = require('../../../data');
+
 class UserManager {
   constructor() {
-    this.users = [];
-    this.userId = 1;
+    this.users = colleagues;
   }
 // créer un nvel utilisateur 
   createUser(name, job) {
     const user = {
-      id: this.userId++,
+      id: this.generateNewId(),
       name,
       job,
       projects: [],
@@ -16,6 +17,14 @@ class UserManager {
     this.users.push(user);
     return user;
   }
+
+  generateNewId(){
+    //trove le dernier id existant
+ const existingIds = this.users.map(user => user.id);
+  const maxId = Math.max(...existingIds);
+  //+1 a cet id
+  return maxId + 1;
+  }; 
 
   getUsers() {
     return this.users;
