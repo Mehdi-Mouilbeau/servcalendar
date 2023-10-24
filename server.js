@@ -12,7 +12,8 @@ app.get('/colleagues', (req, res) => {
 });
 
 app.get('/colleagues/:id', (req, res) => {
-    const id = parseInt(req.params["id"]);
+    const id = parseInt(req.params.id);
+    const name = parseInt(req.params.name);
     res.json(id);
 });
 
