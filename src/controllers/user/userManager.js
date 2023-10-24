@@ -25,8 +25,11 @@ class UserManager {
     return this.users.find(user => user.id === id);
   }
 
-  deleteUser(id){
-return this.users.find
+  deleteUser(id) {
+    const userIndex = this.users.findIndex(user => user.id === id);
+    if (userIndex !== -1) {
+      this.users.splice(userIndex, 1);
+    }
   }
 }
 

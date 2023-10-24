@@ -4,13 +4,6 @@ const UserManager = require('./userManager');
 
 const userManager = new UserManager();
 
-userManager.createUser("Clement", "Chef de projet");
-userManager.createUser("Antoine", "Developpeur full stack");
-userManager.createUser("François", "developpeur IA");
-userManager.createUser("Tristan", "Data Analyste");
-userManager.createUser("Mehdi", "Developpeur d'application mobile");
-
-
 router.get('/users', (req, res) => {
   const users = userManager.getUsers();
   res.json(users);
@@ -39,7 +32,9 @@ router.post('/users', (req,res) => {
 });
 
 //delete user
-
+router.delete('/users/:id', (req, res) => {
+    
+})
 router.delete
 
 module.exports = router;
